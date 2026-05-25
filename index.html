@@ -700,6 +700,213 @@
       .kpi-card { border-right: none; }
       .kpi-context { grid-template-columns: 1fr; }
     }
+
+    /* ── SECTION 4: SPONSORSHIPS ────────────────────────── */
+    #sponsorships {
+      position: relative;
+      background: var(--paper);
+      padding: 120px 0 140px;
+    }
+
+    /* Seamless obsidian → paper gradient transition */
+    #sponsorships::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 220px;
+      background: linear-gradient(to bottom, var(--obsidian) 0%, var(--paper) 100%);
+      pointer-events: none;
+    }
+
+    #sponsorships > .s-wrap { position: relative; }
+
+    /* Light-mode eyebrow + title */
+    #sponsorships .s-eyebrow { color: var(--bronze); }
+    #sponsorships .s-eyebrow::before { background: var(--bronze); }
+    #sponsorships .s-eyebrow .s-num { color: var(--slate); }
+
+    .sp-title {
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.018em;
+      color: var(--obsidian);
+      margin-top: 16px;
+      margin-bottom: 64px;
+    }
+
+    .sp-title em { font-style: italic; color: var(--bronze); }
+
+    /* 3-col card grid */
+    .sp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .sp-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--obsidian);
+      overflow: hidden;
+      cursor: default;
+    }
+
+    /* Image area */
+    .sp-img-wrap {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* CSS fallback backgrounds (show when img file is missing) */
+    .sp-img-wrap.rb-bg  { background: linear-gradient(160deg, #0A0E28 0%, #160820 100%); }
+    .sp-img-wrap.uae-bg { background: linear-gradient(160deg, #1A1400 0%, #0D1C08 100%); }
+    .sp-img-wrap.am-bg  { background: linear-gradient(160deg, #071A0C 0%, #031008 100%); }
+
+    .sp-img-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sp-card:hover .sp-img-wrap img { transform: scale(1.04); }
+
+    /* Dark gradient overlay at image bottom */
+    .sp-img-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        transparent 30%,
+        rgba(11, 14, 16, 0.5) 70%,
+        rgba(11, 14, 16, 0.88) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* Category tag floats over image bottom-left */
+    .sp-img-tag {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      z-index: 2;
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bronze);
+    }
+
+    /* Meta footer */
+    .sp-meta {
+      padding: 24px 24px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .sp-name {
+      font-family: "Instrument Serif", serif;
+      font-size: 26px;
+      color: var(--bone);
+      line-height: 1.05;
+    }
+
+    .sp-name em { font-style: italic; color: var(--bronze-soft); }
+
+    .sp-desc {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .sp-year {
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--steel);
+      border-top: 1px solid var(--rule);
+      padding-top: 12px;
+      margin-top: 4px;
+    }
+
+    /* Philosophy strip */
+    .sp-philosophy {
+      margin-top: 72px;
+      padding: 40px 48px;
+      background: var(--obsidian);
+      border-left: 3px solid var(--bronze);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .sp-quote {
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(22px, 2.5vw, 32px);
+      color: var(--bone);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .sp-quote em { font-style: italic; color: var(--bronze-soft); }
+
+    .sp-attr {
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-top: 14px;
+    }
+
+    .sp-philosophy-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+
+    .sp-stat {
+      text-align: right;
+    }
+
+    .sp-stat-num {
+      font-family: "Instrument Serif", serif;
+      font-size: 36px;
+      color: var(--bone);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .sp-stat-num em { font-style: italic; color: var(--bronze-soft); }
+
+    .sp-stat-label {
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-top: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .sp-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .sp-philosophy { grid-template-columns: 1fr; gap: 32px; }
+      .sp-philosophy-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    }
   </style>
 </head>
 <body>
@@ -928,6 +1135,97 @@
       </div>
       <div class="kpi-ctx-item">
         <div class="kpi-ctx-text">Lead-to-first-deposit rate sustained above industry benchmark.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SECTION 4: GLOBAL SPONSORSHIP PORTFOLIO ───────────── -->
+<section id="sponsorships">
+  <div class="s-wrap">
+
+    <div class="s-eyebrow">
+      04 / Sponsorship Book
+      <span class="s-num">· Tier-1 Global Partnerships</span>
+    </div>
+
+    <h2 class="sp-title">Sponsorship is<br><em>distribution.</em></h2>
+
+    <div class="sp-grid">
+
+      <!-- Red Bull Racing ─────────────────────────────── -->
+      <div class="sp-card">
+        <div class="sp-img-wrap rb-bg">
+          <img
+            src="images/redbull.jpg"
+            alt="AvaTrade × Red Bull Racing — Formula 1 sponsorship"
+            loading="lazy"
+          >
+          <div class="sp-img-tag">Motorsport · Formula 1</div>
+        </div>
+        <div class="sp-meta">
+          <div class="sp-name">Red Bull <em>Racing</em></div>
+          <div class="sp-desc">Global title sponsorship and brand activation with Oracle Red Bull Racing — the world's most successful Formula 1 team. Full campaign management from trackside branding to driver content and earned media.</div>
+          <div class="sp-year">Partnership · 2023 — 2024</div>
+        </div>
+      </div>
+
+      <!-- UAE Pro League ───────────────────────────────── -->
+      <div class="sp-card">
+        <div class="sp-img-wrap uae-bg">
+          <img
+            src="images/uae-pro-league.jpg"
+            alt="AvaTrade × UAE Pro League — perimeter sponsorship"
+            loading="lazy"
+          >
+          <div class="sp-img-tag">Football · UAE Arabian Gulf League</div>
+        </div>
+        <div class="sp-meta">
+          <div class="sp-name">UAE Pro <em>League</em></div>
+          <div class="sp-desc">Official presenting sponsor of the UAE Arabian Gulf League — pitch-side perimeter branding across all top-flight fixtures, reaching millions of fans across the region and globally via broadcast.</div>
+          <div class="sp-year">Partnership · 2022 — Present</div>
+        </div>
+      </div>
+
+      <!-- Aston Martin ─────────────────────────────────── -->
+      <div class="sp-card">
+        <div class="sp-img-wrap am-bg">
+          <!--
+            DROP FILE HERE: images/aston-martin.jpg
+            Recommended: 1200 × 800 px minimum, landscape
+          -->
+          <img
+            src="images/aston-martin.jpg"
+            alt="AvaTrade × Aston Martin — Formula 1 sponsorship"
+            loading="lazy"
+          >
+          <div class="sp-img-tag">Motorsport · Formula 1</div>
+        </div>
+        <div class="sp-meta">
+          <div class="sp-name">Aston Martin <em>F1</em></div>
+          <div class="sp-desc">Official sponsorship partner of the Aston Martin Aramco Formula One Team — global co-branding, digital content, and premium hospitality activations across the full race calendar.</div>
+          <div class="sp-year">Partnership · 2022 — 2024</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Philosophy strip -->
+    <div class="sp-philosophy">
+      <div>
+        <div class="sp-quote">Selected for fit on three filters: <em>audience overlap,</em> regulatory posture, and <em>earned-media multiplier.</em></div>
+        <div class="sp-attr">Sponsorship philosophy · AvaTrade Marketing</div>
+      </div>
+      <div class="sp-philosophy-right">
+        <div class="sp-stat">
+          <div class="sp-stat-num"><em>3</em></div>
+          <div class="sp-stat-label">Tier-1 Properties</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-num"><em>412</em>M</div>
+          <div class="sp-stat-label">Earned Impressions</div>
+        </div>
       </div>
     </div>
 
