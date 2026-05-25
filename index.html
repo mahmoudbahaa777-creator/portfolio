@@ -1625,10 +1625,10 @@
         <div class="booking-wrap">
 
           <form id="booking-form" class="booking-form">
-            <!-- Web3Forms access key — replace with yours from web3forms.com -->
-            <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
-            <input type="hidden" name="subject" value="New call booking — Mahmoud Portfolio">
-            <input type="hidden" name="from_name" value="Mahmoud Portfolio">
+            <!-- Formsubmit config — no account needed, just verify the email once -->
+            <input type="hidden" name="_subject" value="New call booking — Mahmoud Portfolio">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
 
             <div class="form-row">
               <div class="form-field">
@@ -1980,7 +1980,7 @@
     const payload = Object.fromEntries(new FormData(form));
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('https://formsubmit.co/ajax/mahmoudbahaa777@gmail.com', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body:    JSON.stringify(payload),
