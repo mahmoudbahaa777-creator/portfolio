@@ -560,6 +560,146 @@
       .tenure-bar { flex-direction: column; align-items: flex-start; }
       .tenure-meta { gap: 24px; }
     }
+
+    /* ── SECTION 3: PERFORMANCE METRICS ────────────────── */
+    #metrics {
+      position: relative;
+      /* Gradient blends seamlessly from Section 2's ink surface */
+      background: linear-gradient(to bottom, var(--ink) 0%, var(--obsidian) 7%);
+      padding: 120px 0 140px;
+    }
+
+    .kpi-title {
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.018em;
+      color: var(--bone);
+      margin-top: 16px;
+      margin-bottom: 64px;
+    }
+
+    .kpi-title em { font-style: italic; color: var(--bronze-soft); }
+
+    /* 4-col KPI grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--rule);
+    }
+
+    .kpi-card {
+      padding: 40px 32px 36px;
+      border-right: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card:last-child { border-right: none; }
+
+    .kpi-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .kpi-cap {
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bronze);
+    }
+
+    .delta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      background: rgba(31, 76, 58, 0.35);
+      border: 1px solid rgba(43, 182, 115, 0.25);
+      color: var(--signal);
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .kpi-number {
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(52px, 5.5vw, 84px);
+      line-height: 0.93;
+      letter-spacing: -0.025em;
+      color: var(--bone);
+      margin-bottom: 14px;
+    }
+
+    .kpi-number em { font-style: italic; color: var(--bronze-soft); }
+
+    .kpi-label {
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .kpi-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--rule);
+    }
+
+    .kpi-bar-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--bronze), var(--bronze-soft));
+      width: 0;
+      transition: width 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Sub-context strip */
+    .kpi-context {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--rule);
+      border-top: none;
+      background: var(--ink);
+    }
+
+    .kpi-ctx-item {
+      padding: 18px 32px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .kpi-ctx-item:last-child { border-right: none; }
+
+    .kpi-ctx-text {
+      font-size: 12px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .kpi-card {
+        border-bottom: 1px solid var(--rule);
+      }
+      .kpi-card:nth-child(2n) { border-right: none; }
+      .kpi-context { grid-template-columns: 1fr 1fr; }
+      .kpi-ctx-item { border-bottom: 1px solid var(--rule); }
+    }
+
+    @media (max-width: 600px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .kpi-card { border-right: none; }
+      .kpi-context { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -715,6 +855,79 @@
           <div class="t-label">Discipline</div>
           <div class="t-val">Performance · Brand · Sponsorship</div>
         </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SECTION 3: PERFORMANCE METRICS ───────────────────── -->
+<section id="metrics">
+  <div class="s-wrap">
+
+    <div class="s-eyebrow">
+      03 / Performance Ledger
+      <span class="s-num">· Key Performance Indicators</span>
+    </div>
+
+    <h2 class="kpi-title">Performance,<br><em>receipted.</em></h2>
+
+    <div class="kpi-grid">
+
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-cap">Budget</div>
+          <div class="delta-badge">▲ Annual</div>
+        </div>
+        <div class="kpi-number" id="kpi-budget">$0M</div>
+        <div class="kpi-label">Yearly Budget<br>Managed</div>
+        <div class="kpi-bar"><div class="kpi-bar-fill" data-width="100"></div></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-cap">Leads</div>
+          <div class="delta-badge">▲ Monthly</div>
+        </div>
+        <div class="kpi-number" id="kpi-leads">0+</div>
+        <div class="kpi-label">Monthly Leads<br>Generated</div>
+        <div class="kpi-bar"><div class="kpi-bar-fill" data-width="82"></div></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-cap">FTDs</div>
+          <div class="delta-badge">▲ Monthly</div>
+        </div>
+        <div class="kpi-number" id="kpi-ftds">0</div>
+        <div class="kpi-label">Monthly First-Time<br>Deposits</div>
+        <div class="kpi-bar"><div class="kpi-bar-fill" data-width="68"></div></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-cap">Conversion</div>
+          <div class="delta-badge">▲ Lead → FTD</div>
+        </div>
+        <div class="kpi-number" id="kpi-conv">0%</div>
+        <div class="kpi-label">Avg. Conversion<br>Rate</div>
+        <div class="kpi-bar"><div class="kpi-bar-fill" data-width="55"></div></div>
+      </div>
+
+    </div>
+
+    <div class="kpi-context">
+      <div class="kpi-ctx-item">
+        <div class="kpi-ctx-text">Deployed across performance, brand, and sponsorship channels annually.</div>
+      </div>
+      <div class="kpi-ctx-item">
+        <div class="kpi-ctx-text">Qualified inbound leads across 11+ global regulated markets.</div>
+      </div>
+      <div class="kpi-ctx-item">
+        <div class="kpi-ctx-text">Active depositing clients onboarded monthly across equities, FX, and metals.</div>
+      </div>
+      <div class="kpi-ctx-item">
+        <div class="kpi-ctx-text">Lead-to-first-deposit rate sustained above industry benchmark.</div>
       </div>
     </div>
 
@@ -973,6 +1186,68 @@
       : 'rgba(11,14,16,0.82)';
   }, { passive: true });
 
+})();
+</script>
+
+<!-- ── KPI COUNTER ANIMATION ───────────────────────────── -->
+<script>
+(function () {
+  const COUNTERS = [
+    {
+      el:       document.getElementById('kpi-budget'),
+      end:      2,
+      duration: 1400,
+      format:   v => `$${v}M`,
+    },
+    {
+      el:       document.getElementById('kpi-leads'),
+      end:      1000,
+      duration: 1700,
+      format:   v => `${v.toLocaleString()}+`,
+    },
+    {
+      el:       document.getElementById('kpi-ftds'),
+      end:      100,
+      duration: 1300,
+      format:   v => `${v}`,
+    },
+    {
+      el:       document.getElementById('kpi-conv'),
+      end:      10,
+      duration: 1100,
+      format:   v => `${v}%`,
+    },
+  ];
+
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+  let fired = false;
+
+  function runAll() {
+    if (fired) return;
+    fired = true;
+
+    COUNTERS.forEach(c => {
+      const t0 = performance.now();
+      (function tick(now) {
+        const progress = Math.min((now - t0) / c.duration, 1);
+        c.el.textContent = c.format(Math.floor(easeOutCubic(progress) * c.end));
+        if (progress < 1) requestAnimationFrame(tick);
+        else c.el.textContent = c.format(c.end);
+      })(performance.now());
+    });
+
+    /* Animate the bronze bar fills with a staggered delay */
+    document.querySelectorAll('.kpi-bar-fill').forEach((bar, i) => {
+      setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 150 + i * 80);
+    });
+  }
+
+  const io = new IntersectionObserver(
+    entries => { if (entries[0].isIntersecting) { runAll(); io.disconnect(); } },
+    { threshold: 0.25 }
+  );
+  io.observe(document.getElementById('metrics'));
 })();
 </script>
 
