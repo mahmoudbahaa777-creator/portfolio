@@ -907,6 +907,339 @@
       .sp-philosophy { grid-template-columns: 1fr; gap: 32px; }
       .sp-philosophy-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
     }
+
+    /* ── SECTION 5: LINKEDIN ────────────────────────────── */
+    #connect {
+      position: relative;
+      background: var(--obsidian);
+      padding: 120px 0;
+      overflow: hidden;
+    }
+
+    /* Gradient from paper (Section 4) into obsidian */
+    #connect::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to bottom, var(--paper), var(--obsidian));
+      pointer-events: none;
+    }
+
+    #connect > .s-wrap { position: relative; }
+
+    .ln-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .ln-title {
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(38px, 5.5vw, 80px);
+      line-height: 0.96;
+      letter-spacing: -0.02em;
+      color: var(--bone);
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+
+    .ln-title em { font-style: italic; color: var(--bronze-soft); }
+
+    .ln-sub {
+      font-size: 16px;
+      color: rgba(241, 236, 227, 0.52);
+      max-width: 46ch;
+      line-height: 1.7;
+    }
+
+    .ln-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    .ln-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 40px;
+      background: #0A66C2;
+      color: #fff;
+      font-family: "Geist Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .ln-btn:hover { background: #004182; transform: translateY(-2px); }
+
+    .ln-btn svg {
+      width: 18px; height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .ln-handle {
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--steel);
+      text-align: center;
+    }
+
+    /* ── SECTION 6: CONTACT / FOOTER ───────────────────── */
+    #contact {
+      background: var(--ink);
+      padding: 120px 0 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 80px;
+      align-items: start;
+      padding-bottom: 80px;
+    }
+
+    .contact-title {
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1.0;
+      letter-spacing: -0.018em;
+      color: var(--bone);
+      margin-top: 16px;
+      margin-bottom: 28px;
+    }
+
+    .contact-title em { font-style: italic; color: var(--bronze-soft); }
+
+    .contact-desc {
+      font-size: 16px;
+      color: rgba(241, 236, 227, 0.52);
+      max-width: 38ch;
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .contact-topics {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--rule);
+    }
+
+    .contact-topic {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--rule);
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+    }
+
+    .contact-topic::before {
+      content: "";
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--bronze);
+      flex-shrink: 0;
+    }
+
+    /* Booking form */
+    .booking-wrap {
+      border: 1px solid var(--rule);
+    }
+
+    .booking-form { display: flex; flex-direction: column; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid var(--rule);
+      border-right: 1px solid var(--rule);
+      padding: 20px 22px;
+      transition: background 0.2s;
+    }
+
+    .form-field:nth-child(2n) { border-right: none; }
+    .form-field.full { grid-column: 1 / -1; border-right: none; }
+    .form-field:focus-within { background: rgba(182, 138, 78, 0.04); }
+
+    .form-label {
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bronze);
+      margin-bottom: 9px;
+    }
+
+    .form-input,
+    .form-select {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--bone);
+      font-family: "Geist", sans-serif;
+      font-size: 15px;
+      width: 100%;
+      padding: 0;
+      color-scheme: dark;
+    }
+
+    .form-input::placeholder { color: var(--slate); }
+
+    .form-select {
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-select option { background: var(--ink); color: var(--bone); }
+
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.45) sepia(1) saturate(2);
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    .form-error {
+      display: none;
+      padding: 12px 22px;
+      background: rgba(142, 42, 42, 0.2);
+      border-left: 3px solid var(--crimson);
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      color: #D87060;
+      letter-spacing: 0.1em;
+    }
+
+    .form-error.show { display: block; }
+
+    .form-footer-row {
+      padding: 22px;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .btn-submit {
+      padding: 13px 32px;
+      background: var(--bronze);
+      color: var(--obsidian);
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-submit:hover:not(:disabled) { background: var(--bronze-soft); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-note {
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+    }
+
+    .form-success {
+      display: none;
+      padding: 56px 32px;
+      text-align: center;
+    }
+
+    .form-success.show { display: block; }
+
+    .form-success-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(43, 182, 115, 0.15);
+      border: 1px solid rgba(43, 182, 115, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--signal);
+      font-size: 18px;
+    }
+
+    .form-success-title {
+      font-family: "Instrument Serif", serif;
+      font-size: 32px;
+      color: var(--bone);
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    .form-success-title em { font-style: italic; color: var(--signal); }
+
+    .form-success-sub {
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      color: var(--steel);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* Colophon */
+    .colophon {
+      border-top: 1px solid var(--rule);
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .colophon-mark {
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--bone);
+    }
+
+    .colophon-mark em { color: var(--bronze); }
+
+    .colophon-copy {
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel);
+    }
+
+    @media (max-width: 900px) {
+      .ln-inner { grid-template-columns: 1fr; gap: 48px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-field { border-right: none !important; }
+      .form-footer-row { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
@@ -1232,6 +1565,143 @@
   </div>
 </section>
 
+<!-- ── SECTION 5: LINKEDIN ────────────────────────────────── -->
+<section id="connect">
+  <div class="s-wrap">
+
+    <div class="ln-inner">
+      <div>
+        <div class="s-eyebrow">
+          05 / Connect
+          <span class="s-num">· LinkedIn</span>
+        </div>
+        <h2 class="ln-title">Follow the <em>thinking</em><br>behind the work.</h2>
+        <p class="ln-sub">Insights on performance marketing, sponsorship economics, and what it takes to build a category-leading brand in regulated financial markets. Join 3,000+ professionals in the conversation.</p>
+      </div>
+
+      <div class="ln-right">
+        <a
+          href="https://www.linkedin.com/in/mahmoud-bahaa-a38860ab/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ln-btn"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          Follow on LinkedIn
+        </a>
+        <div class="ln-handle">mahmoud-bahaa</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SECTION 6: CONTACT & FOOTER ───────────────────────── -->
+<section id="contact">
+  <div class="s-wrap">
+
+    <div class="contact-grid">
+
+      <!-- Left: CTA copy -->
+      <div>
+        <div class="s-eyebrow">
+          06 / Contact
+          <span class="s-num">· Book a 30-min call</span>
+        </div>
+        <h2 class="contact-title">Open to the<br>right <em>conversation.</em></h2>
+        <p class="contact-desc">Schedule a 30-minute call on category bets, sponsorship economics, paid-media architecture, or executive opportunities.</p>
+        <div class="contact-topics">
+          <div class="contact-topic">Institutional partnerships</div>
+          <div class="contact-topic">Executive recruiting</div>
+          <div class="contact-topic">Sponsorship rights-holders</div>
+          <div class="contact-topic">Performance marketing mandates</div>
+        </div>
+      </div>
+
+      <!-- Right: Booking form -->
+      <div>
+        <div class="booking-wrap">
+
+          <form id="booking-form" class="booking-form">
+            <!-- Web3Forms access key — replace with yours from web3forms.com -->
+            <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
+            <input type="hidden" name="subject" value="New call booking — Mahmoud Portfolio">
+            <input type="hidden" name="from_name" value="Mahmoud Portfolio">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="f-name">Full Name</label>
+                <input class="form-input" id="f-name" name="name" type="text" placeholder="Your full name" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="f-email">Email Address</label>
+                <input class="form-input" id="f-email" name="email" type="email" placeholder="your@email.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="f-phone">Phone Number</label>
+                <input class="form-input" id="f-phone" name="phone" type="tel" placeholder="+971 50 000 0000" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="f-date">Preferred Date</label>
+                <input class="form-input" id="f-date" name="preferred_date" type="date" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="f-time">Preferred Time</label>
+                <input class="form-input" id="f-time" name="preferred_time" type="time" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="f-tz">Time Zone</label>
+                <select class="form-input form-select" id="f-tz" name="timezone">
+                  <option value="GST (UTC+4)">Dubai — GST (UTC+4)</option>
+                  <option value="GMT (UTC+0)">London — GMT (UTC+0)</option>
+                  <option value="CET (UTC+1)">Europe — CET (UTC+1)</option>
+                  <option value="EST (UTC-5)">New York — EST (UTC-5)</option>
+                  <option value="GST (UTC-8)">Los Angeles — PST (UTC-8)</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-error" id="form-error">
+              Something went wrong. Please try again or email directly.
+            </div>
+
+            <div class="form-footer-row">
+              <button type="submit" class="btn-submit" id="submit-btn">
+                Schedule a Call →
+              </button>
+              <span class="form-note">Response within 24 hours</span>
+            </div>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <div class="form-success-icon">✓</div>
+            <div class="form-success-title">Call <em>confirmed.</em></div>
+            <div class="form-success-sub">We'll be in touch within 24 hours</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Colophon -->
+    <div class="colophon">
+      <div class="colophon-mark"><em>Mahmoud.</em></div>
+      <div class="colophon-copy">Marketing Manager · AvaTrade · © 2026</div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ── CANVAS + TICKER SCRIPT ──────────────────────────── -->
 <script>
 (function () {
@@ -1484,6 +1954,52 @@
       : 'rgba(11,14,16,0.82)';
   }, { passive: true });
 
+})();
+</script>
+
+<!-- ── BOOKING FORM ───────────────────────────────────── -->
+<script>
+(function () {
+  const form      = document.getElementById('booking-form');
+  const successEl = document.getElementById('form-success');
+  const errorEl   = document.getElementById('form-error');
+  const submitBtn = document.getElementById('submit-btn');
+  const dateInput = document.getElementById('f-date');
+
+  /* Set minimum selectable date to tomorrow */
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  dateInput.min = tomorrow.toISOString().split('T')[0];
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl.classList.remove('show');
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+
+    const payload = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+
+      const json = await res.json();
+
+      if (res.ok && json.success) {
+        form.style.display = 'none';
+        successEl.classList.add('show');
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch {
+      errorEl.classList.add('show');
+      submitBtn.textContent = 'Schedule a Call →';
+      submitBtn.disabled = false;
+    }
+  });
 })();
 </script>
 
