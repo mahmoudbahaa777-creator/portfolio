@@ -377,6 +377,189 @@
       .hero-title { font-size: 48px; }
       :root { --gutter: 20px; }
     }
+
+    /* ── SECTION 2: EXPERIENCE ──────────────────────────── */
+    #experience {
+      background: var(--ink);
+      padding: 120px 0 140px;
+    }
+
+    .s-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    .s-eyebrow {
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bronze);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 64px;
+    }
+
+    .s-eyebrow::before {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--bronze);
+      flex-shrink: 0;
+    }
+
+    .s-eyebrow .s-num { color: var(--steel); margin-left: 4px; }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .exp-title {
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(36px, 4.2vw, 60px);
+      line-height: 1.02;
+      letter-spacing: -0.018em;
+      color: var(--bone);
+      margin-bottom: 32px;
+    }
+
+    .exp-title em { font-style: italic; color: var(--bronze-soft); }
+
+    .exp-bio {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(241, 236, 227, 0.58);
+      max-width: 50ch;
+      margin-bottom: 52px;
+    }
+
+    .highlights {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--rule);
+    }
+
+    .highlight-row {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+
+    .hl-num {
+      font-family: "Instrument Serif", serif;
+      font-size: 30px;
+      color: var(--bone);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .hl-num em { font-style: italic; color: var(--bronze-soft); }
+
+    .hl-label {
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--steel);
+      line-height: 1.5;
+    }
+
+    /* Competency cards */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .comp-card {
+      background: var(--obsidian);
+      padding: 30px 26px;
+      transition: background 0.25s;
+    }
+
+    .comp-card:hover { background: #101418; }
+
+    .comp-n {
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bronze);
+      margin-bottom: 14px;
+    }
+
+    .comp-name {
+      font-family: "Instrument Serif", serif;
+      font-size: 22px;
+      color: var(--bone);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .comp-name em { font-style: italic; color: var(--bronze-soft); }
+
+    .comp-desc {
+      font-size: 12px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    /* Tenure strip */
+    .tenure-bar {
+      margin-top: 80px;
+      padding: 28px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .tenure-role {
+      font-family: "Instrument Serif", serif;
+      font-size: 26px;
+      color: var(--bone);
+      flex-shrink: 0;
+    }
+
+    .tenure-role em { font-style: italic; color: var(--bronze-soft); }
+
+    .tenure-meta { display: flex; gap: 48px; flex-wrap: wrap; }
+
+    .t-item { display: flex; flex-direction: column; gap: 6px; }
+
+    .t-label {
+      font-family: "Geist Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--steel);
+    }
+
+    .t-val {
+      font-family: "Geist Mono", monospace;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: var(--bone);
+    }
+
+    @media (max-width: 900px) {
+      .exp-grid { grid-template-columns: 1fr; gap: 56px; }
+      .tenure-bar { flex-direction: column; align-items: flex-start; }
+      .tenure-meta { gap: 24px; }
+    }
   </style>
 </head>
 <body>
@@ -432,6 +615,110 @@
     </div>
   </div>
 
+</section>
+
+<!-- ── SECTION 2: EXECUTIVE EXPERIENCE ───────────────────── -->
+<section id="experience">
+  <div class="s-wrap">
+
+    <div class="s-eyebrow">
+      02 / Experience
+      <span class="s-num">· Marketing Manager · AvaTrade</span>
+    </div>
+
+    <div class="exp-grid">
+
+      <!-- Left: bio + highlights -->
+      <div>
+        <h2 class="exp-title">A decade at the<br><em>intersection</em> of capital<br>and craft.</h2>
+        <p class="exp-bio">A decade running the full marketing book at AvaTrade. Twelve million dollars deployed annually across performance, brand, and sponsorship — generating 60,000+ leads and 6,000+ first-time depositors. Fifty percent brand lift in twelve months: the compound effect of precision spending and institutional storytelling.</p>
+
+        <div class="highlights">
+          <div class="highlight-row">
+            <div class="hl-num">$<em>12</em>M</div>
+            <div class="hl-label">Annual media budget managed</div>
+          </div>
+          <div class="highlight-row">
+            <div class="hl-num"><em>60</em>K+</div>
+            <div class="hl-label">Leads generated per year</div>
+          </div>
+          <div class="highlight-row">
+            <div class="hl-num"><em>6</em>K+</div>
+            <div class="hl-label">First-time depositors (FTDs)</div>
+          </div>
+          <div class="highlight-row">
+            <div class="hl-num"><em>8</em>%</div>
+            <div class="hl-label">Avg. lead-to-FTD conversion rate</div>
+          </div>
+          <div class="highlight-row">
+            <div class="hl-num">+<em>50</em>%</div>
+            <div class="hl-label">Brand lift uplift</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: competency grid -->
+      <div>
+        <div class="comp-grid">
+          <div class="comp-card">
+            <div class="comp-n">01</div>
+            <div class="comp-name">Performance<br><em>Marketing</em></div>
+            <div class="comp-desc">Paid acquisition across search, social, and programmatic — built for regulated financial markets.</div>
+          </div>
+          <div class="comp-card">
+            <div class="comp-n">02</div>
+            <div class="comp-name">Demand<br><em>Generation</em></div>
+            <div class="comp-desc">Full-funnel pipeline strategy driving quality leads at scale across global trading verticals.</div>
+          </div>
+          <div class="comp-card">
+            <div class="comp-n">03</div>
+            <div class="comp-name">Performance<br><em>Max · PMax</em></div>
+            <div class="comp-desc">Google's AI-driven campaign type — multi-channel execution deployed across 11+ markets.</div>
+          </div>
+          <div class="comp-card">
+            <div class="comp-n">04</div>
+            <div class="comp-name">Google<br><em>Ads</em></div>
+            <div class="comp-desc">Search, Display, Discovery, and YouTube — structured for CAC efficiency and strong ROAS.</div>
+          </div>
+          <div class="comp-card">
+            <div class="comp-n">05</div>
+            <div class="comp-name">Brand &amp;<br><em>Identity</em></div>
+            <div class="comp-desc">Long-horizon brand architecture and consideration campaigns that compound into category trust.</div>
+          </div>
+          <div class="comp-card">
+            <div class="comp-n">06</div>
+            <div class="comp-name">Global<br><em>Sponsorships</em></div>
+            <div class="comp-desc">Tier-1 property selection, deal negotiation, and full activation — motorsport, football, and beyond.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tenure strip -->
+    <div class="tenure-bar">
+      <div class="tenure-role">Marketing Manager · <em>AvaTrade</em></div>
+      <div class="tenure-meta">
+        <div class="t-item">
+          <div class="t-label">Tenure</div>
+          <div class="t-val">2016 — Present</div>
+        </div>
+        <div class="t-item">
+          <div class="t-label">Sector</div>
+          <div class="t-val">Fintech · Trading · FX</div>
+        </div>
+        <div class="t-item">
+          <div class="t-label">Markets</div>
+          <div class="t-val">11+ Global</div>
+        </div>
+        <div class="t-item">
+          <div class="t-label">Discipline</div>
+          <div class="t-val">Performance · Brand · Sponsorship</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- ── CANVAS + TICKER SCRIPT ──────────────────────────── -->
